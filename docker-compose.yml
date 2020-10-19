@@ -1,0 +1,20 @@
+version: '3.8'
+x-common-vars: &shared_envars
+  FOO: 42
+x-volume: &shared_vols
+  - ".:/${PROJECT_DIRECTORY}"
+services:
+  service_1:
+    env_file:
+      - envfile.env
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes: *shared_vols
+  service_2:
+    env_file:
+      - envfile2.env
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes: *shared_vols

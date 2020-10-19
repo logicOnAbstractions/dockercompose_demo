@@ -1,0 +1,11 @@
+about
+-------------
+
+a simple setup that allows exploring docker - check proper use of compose files, set of envvars, etc.
+
+structure
+------------
+
+* a simple python file is run
+* from that python file we can log/print whatever we want to get state of the excuted program
+* we could also exec bash cmds for system info (from within container) etc.
