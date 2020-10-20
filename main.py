@@ -1,12 +1,16 @@
 import sys
 import os
-print("Hello world!")
-print(f"Printing current os.environ values - including any set in DOckefile/compose file etc.")
+from logger import get_root_logger
+
+LOG = get_root_logger("default", filename="logs")
+
+LOG.info("Hello world!")
+LOG.info(f"LOG.infoing current os.environ values - including any set in DOckefile/compose file etc.")
 envars = os.environ
 for var, value in envars.items():
-    print(f"{var}: {value}")
-print(f"Current working directory: {os.getcwd()}")
+    LOG.info(f"{var}: {value}")
+LOG.info(f"Current working directory: {os.getcwd()}")
 
-print(f"Listing all files & folder in working directory:")
+LOG.info(f"Listing all files & folder in working directory:")
 for file_folder in os.listdir():
-    print(f"{file_folder}")
+    LOG.info(f"{file_folder}")
